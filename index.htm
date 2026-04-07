@@ -27,7 +27,7 @@
         html[lang="fr"] body { font-family: var(--font-fr); }
         html[lang="ar"] body { font-family: var(--font-ar); }
 
-        /* Optimisation de la hauteur sur mobile pour éviter les sauts du footer */
+        /* Optimisation de la hauteur sur mobile */
         .min-h-screen-custom {
             min-height: 100vh;
             min-height: 100dvh;
@@ -35,14 +35,80 @@
 
         iframe::-webkit-scrollbar { display: none; }
         iframe { scrollbar-width: none; }
+
+        /* Styles pour l'écran de chargement */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s;
+        }
+
+        .logo-pulse {
+            animation: pulse-custom 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .loader-line {
+            width: 120px;
+            height: 3px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 24px;
+            position: relative;
+        }
+
+        .loader-line::after {
+            content: '';
+            position: absolute;
+            left: -50%;
+            height: 100%;
+            width: 50%;
+            background: linear-gradient(90deg, #4f46e5, #3b82f6);
+            border-radius: 10px;
+            animation: line-anim 1.5s infinite linear;
+        }
+
+        @keyframes line-anim {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 overflow-hidden">
+
+    <!-- ========================================== -->
+    <!-- ÉCRAN DE CHARGEMENT (SPLASH SCREEN) -->
+    <!-- ========================================== -->
+    <div id="splash-screen">
+        <div class="flex flex-col items-center">
+            <!-- Logo animé -->
+            <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-6 rounded-3xl shadow-2xl shadow-indigo-200 mb-6 logo-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="text-center">
+                <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight">HT<span class="text-indigo-600">Learning</span></h1>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-[0.2em] mt-1" data-i18n="instructor-name">El Houssine Taqi</p>
+            </div>
+            <!-- Barre de chargement -->
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
     <!-- ========================================== -->
     <!-- VUE 1 : PAGE D'ACCUEIL -->
     <!-- ========================================== -->
-    <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500">
+    <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500 opacity-0">
         
         <!-- En-tête Fixé -->
         <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
@@ -237,7 +303,6 @@
                         </div>
                         <div class="flex-1 text-center md:text-start mt-4">
                             <h2 class="text-sm font-bold text-indigo-600 uppercase mb-1" data-i18n="about-badge">Votre Formateur</h2>
-                            <!-- Traduction de l'ID du nom ici -->
                             <h3 class="text-3xl font-extrabold text-gray-900 mb-2" data-i18n="instructor-name">El Houssine Taqi</h3>
                             <p class="text-lg text-gray-500 mb-6" data-i18n="about-job">Formateur en Comptabilité et Gestion</p>
                             <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-8 bg-gray-50 p-4 rounded-2xl border border-gray-100 text-start">
@@ -343,14 +408,14 @@
                 'course-2-title': 'Informatique bureautique',
                 'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
                 'course-3-title': 'Gestion commerciale',
-                'course-3-desc': 'Appreneز à gérer efficacement le cycle de vente, les achats et la facturation.',
+                'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
                 'lang-btn': 'العربية',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
             'ar': {
                 'nav-home': 'الرئيسية',
                 'nav-courses': 'الدورات',
-                'nav-about': 'المكون',
+                'nav-about': 'المدرب',
                 'instructor-name': 'الحسين تاقي',
                 'hero-badge': 'تعلم تطبيقي 100%',
                 'hero-title-1': 'طور مهاراتك',
@@ -408,6 +473,20 @@
 
         // 3. Logique Application
         lucide.createIcons();
+
+        // Gestion du Splash Screen au chargement
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            const home = document.getElementById('home-view');
+            
+            // On laisse le splash au moins 1.5s pour l'effet visuel
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                splash.style.visibility = 'hidden';
+                home.classList.remove('opacity-0');
+                document.body.classList.remove('overflow-hidden');
+            }, 1500);
+        });
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
