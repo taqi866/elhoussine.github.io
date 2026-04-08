@@ -419,7 +419,7 @@
                 'course-2-title': 'Informatique bureautique',
                 'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
                 'course-3-title': 'Gestion commerciale',
-                'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
+                'course-3-desc': 'Appreneز à gérer efficacement le cycle de vente, les achats et la facturation.',
                 'course-4-title': 'التدبير التجاري للتجار', 
                 'course-4-desc': 'تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.',
                 'lang-btn': 'العربية',
@@ -543,6 +543,7 @@
 
                     <div class="flex justify-center mt-10">
                         <a href="https://script.google.com/macros/s/AKfycbzuMwZOseAZIC13zzyyQcwVUblCcGQiW0-Wj-xlh2LDXD5BFscLCLZTp-g7LeouyJYgiA/exec" 
+                           target="_self"
                            class="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all transform hover:scale-105 active:scale-95 text-center w-full sm:w-auto arabic-text">
                             التسجيل في الدورة
                         </a>
@@ -601,9 +602,17 @@
         function openCourse(courseId) {
             const course = coursesData[courseId];
             const iframe = document.getElementById('course-iframe');
+            const loaderMsg = document.querySelector('[data-i18n="reader-loading"]');
             
             document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
             
+            // تخصيص رسالة التحميل لدورة التجار
+            if (courseId === 'merchants') {
+                loaderMsg.textContent = currentLang === 'ar' ? 'جاري تحميل الإستمارة...' : 'Chargement du formulaire...';
+            } else {
+                loaderMsg.textContent = translations[currentLang]['reader-loading'];
+            }
+
             if (course.isCustom) {
                 iframe.src = 'about:blank';
                 setTimeout(() => {
