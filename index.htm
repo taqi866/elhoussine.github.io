@@ -8,7 +8,6 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -283,7 +282,7 @@
                     <div class="px-8 pb-12 flex flex-col md:flex-row gap-8 relative">
                         <div class="-mt-20 shrink-0 flex flex-col items-center mx-auto md:mx-0">
                             <div class="w-40 h-40 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden">
-                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="Formateur">
+                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="Formateur" onerror="this.src='https://ui-avatars.com/api/?name=El+Houssine+Taqi&background=4f46e5&color=fff&size=200'">
                             </div>
                         </div>
                         <div class="flex-1 text-center md:text-start mt-4">
@@ -377,7 +376,7 @@
                 'about-job': 'Formateur indépendant',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
                 'reader-back': 'Quitter',
-                'reader-loading': 'Chargement de l'espace',
+                'reader-loading': 'Chargement de l\'espace', /* <--- L'ERREUR DE SYNTAXE ETAIT ICI */
                 'course-1-title': 'Comptabilité pratique',
                 'course-1-desc': 'Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.',
                 'course-2-title': 'Informatique bureautique',
@@ -513,6 +512,18 @@
             mobileMenu.classList.toggle('hidden');
             mobileMenuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
             lucide.createIcons();
+        });
+
+        // Fermer le menu mobile au clic sur un lien
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    isMenuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
         });
 
         updateContent();
