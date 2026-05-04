@@ -256,7 +256,7 @@
                         </div>
                     </div>
 
-                    <!-- Carte 4 : Excel Professionnel (NOUVEAU) -->
+                    <!-- Carte 4 : Excel Professionnel -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
                         <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center">
                             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
@@ -355,8 +355,9 @@
         </footer>
     </div>
 
+    <!-- Interface d'affichage des cours -->
     <div id="course-view" class="hidden h-screen flex flex-col bg-slate-50">
-        <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between z-10 shrink-0">
+        <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between z-30 shrink-0">
             <div class="flex items-center gap-4 w-full">
                 <button onclick="closeCourse()" class="flex items-center gap-2 text-gray-600 hover:bg-gray-100 border px-4 py-2 rounded-lg text-sm transition-all">
                     <i data-lucide="arrow-left" class="w-4 h-4 rtl:rotate-180"></i>
@@ -369,12 +370,27 @@
             </div>
         </header>
 
-        <main class="flex-1 w-full bg-white relative overflow-hidden">
+        <main class="flex-1 w-full bg-white relative overflow-hidden flex flex-col">
+            <!-- Loader (z-0) -->
             <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
                 <i data-lucide="loader-2" class="w-10 h-10 text-indigo-600 animate-spin mb-4"></i>
                 <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Chargement de l'espace...</p>
             </div>
+            
+            <!-- Iframe du cours (z-10) -->
             <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
+
+            <!-- Vue de Maintenance (z-20) - Remplacera l'iframe pour les cours en maintenance -->
+            <div id="maintenance-view" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-50 z-20">
+                <div class="bg-orange-100 p-5 rounded-full mb-6">
+                    <i data-lucide="settings-2" class="w-12 h-12 text-orange-500"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 text-center" data-i18n="maintenance-title">Espace en maintenance</h2>
+                <p class="text-gray-500 text-center max-w-md px-6 leading-relaxed" data-i18n="maintenance-desc">Cette formation est actuellement en cours de mise à jour. Veuillez revenir plus tard.</p>
+                <button onclick="closeCourse()" class="mt-8 bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-xl font-medium transition-colors shadow-lg" data-i18n="reader-back">
+                    Retour
+                </button>
+            </div>
         </main>
     </div>
 
@@ -405,7 +421,7 @@
                 'about-badge': 'Votre Formateur',
                 'about-job': 'Fondateur TAJIRXO et formateur indépendant',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
-                'reader-back': 'Quitter',
+                'reader-back': 'Retour',
                 'reader-loading': 'Chargement de l\'espace', 
                 'course-1-title': 'Comptabilité pratique',
                 'course-1-desc': 'Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.',
@@ -415,6 +431,8 @@
                 'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
                 'course-4-title': 'Excel professionnel',
                 'course-4-desc': 'Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.',
+                'maintenance-title': 'Espace en maintenance',
+                'maintenance-desc': 'Cette formation est actuellement en cours de mise à jour. Veuillez revenir plus tard.',
                 'lang-btn': 'العربية',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
@@ -451,6 +469,8 @@
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
                 'course-4-title': 'إكسيل الاحترافي',
                 'course-4-desc': 'إتقان وظائف إكسيل الأساسية لأتمتة الحسابات وتحليل البيانات وإنشاء تقارير مهنية واضحة.',
+                'maintenance-title': 'فضاء في طور الصيانة',
+                'maintenance-desc': 'هذه الدورة قيد التحديث حاليًا. يرجى العودة لاحقًا.',
                 'lang-btn': 'Français',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
@@ -458,31 +478,37 @@
 
         let currentLang = 'fr';
 
+        // Ajout du flag "maintenance: true" pour Gestion et Excel
         const coursesData = {
             'compta': {
                 title_fr: 'Comptabilité pratique',
                 title_ar: 'المحاسبة التطبيقية',
-                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec' 
+                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec',
+                maintenance: false
             },
             'gestion': {
                 title_fr: 'Gestion commerciale',
                 title_ar: 'التدبير التجاري',
-                url: 'https://script.google.com/macros/s/AKfycby7-fUmbCaOUmu0ij2PT4ikWXtcbjademga-3I-oFoOLQQeAPCUp-H4-mPFigsDIsXb/exec'
+                url: '', 
+                maintenance: true
             },
             'informatique': {
                 title_fr: 'Informatique bureautique',
                 title_ar: 'المعلوميات المكتبية',
-                url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec'
+                url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec',
+                maintenance: false
             },
             'excel': {
                 title_fr: 'Excel professionnel',
                 title_ar: 'إكسيل الاحترافي',
-                url: 'https://script.google.com/macros/s/AKfycbyhiQFN3b17bth0AHmyt_j7q0AHdbLJF5sKLiAaBvSPbRZ7KNnZtfgGHv2FjxgZ1K30/exec' /* Remplacez cette ligne par votre lien Google Script pour Excel */
+                url: '', 
+                maintenance: true
             },
             'formateur': {
                 title_fr: 'Espace Formateur',
                 title_ar: 'فضاء المكون',
-                url: 'https://script.google.com/macros/s/AKfycbzt_9rWLIMXc1VOP66NCWpBG8Rsc8c8BBF7Q1Ji80BEFZgbRlDZ0PbPwRUdeOjz6Pj7xw/exec'
+                url: 'https://script.google.com/macros/s/AKfycbzt_9rWLIMXc1VOP66NCWpBG8Rsc8c8BBF7Q1Ji80BEFZgbRlDZ0PbPwRUdeOjz6Pj7xw/exec',
+                maintenance: false
             }
         };
 
@@ -507,9 +533,20 @@
         function openCourse(courseId) {
             const course = coursesData[courseId];
             const iframe = document.getElementById('course-iframe');
+            const maintenanceView = document.getElementById('maintenance-view');
 
             document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-            iframe.src = course.url;
+
+            // Vérification si le cours est en maintenance
+            if (course.maintenance) {
+                iframe.classList.add('hidden');
+                maintenanceView.classList.remove('hidden');
+                iframe.src = '';
+            } else {
+                iframe.classList.remove('hidden');
+                maintenanceView.classList.add('hidden');
+                iframe.src = course.url;
+            }
 
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('course-view').classList.remove('hidden');
@@ -527,7 +564,12 @@
         function closeCourse() {
             document.getElementById('course-view').classList.add('hidden');
             document.getElementById('home-view').classList.remove('hidden');
+            
+            // Réinitialiser la vue du cours pour la prochaine ouverture
             document.getElementById('course-iframe').src = '';
+            document.getElementById('course-iframe').classList.remove('hidden');
+            document.getElementById('maintenance-view').classList.add('hidden');
+            
             window.scrollTo(0, 0);
         }
 
