@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL HOUSSINE TAQI - Logiciels de Gestion & Formations</title> 
+    <title>EL HOUSSINE TAQI - Formateur en Comptabilité et Gestion</title> 
     <link rel="icon" type="image/png" href="/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -25,14 +25,6 @@
         html[lang="fr"] body { font-family: var(--font-fr); }
         html[lang="ar"] body { font-family: var(--font-ar); }
         .arabic-text { font-family: var(--font-ar) !important; }
-
-        .min-h-screen-custom {
-            min-height: 100vh;
-            min-height: 100dvh;
-        }
-
-        iframe::-webkit-scrollbar { display: none; }
-        iframe { scrollbar-width: none; }
 
         #splash-screen {
             position: fixed;
@@ -81,7 +73,6 @@
             100% { left: 100%; }
         }
 
-        /* Vue transitions */
         .view-section {
             animation: fadeIn 0.4s ease-out forwards;
         }
@@ -98,7 +89,7 @@
     <div id="splash-screen">
         <div class="flex flex-col items-center px-4 w-full max-w-lg">
             <div class="logo-pulse flex justify-center items-center w-full">
-                <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain drop-shadow-sm">
+                <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain">
             </div>
             <div class="loader-line"></div>
         </div>
@@ -114,7 +105,6 @@
 
             <nav class="hidden md:flex items-center gap-8">
                 <button onclick="showHome()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
-                <button onclick="showServices()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions & Logiciels</button>
                 <button onclick="showFormations()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
                 <button onclick="showContact()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-contact">Contact</button>
 
@@ -142,10 +132,9 @@
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
             <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
-                <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
-                <button onclick="showServices()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions & Logiciels</button>
-                <button onclick="showFormations()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
-                <button onclick="showContact()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-contact">Contact</button>
+                <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start" data-i18n="nav-home">Accueil</button>
+                <button onclick="showFormations()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start" data-i18n="nav-courses">Formations</button>
+                <button onclick="showContact()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start" data-i18n="nav-contact">Contact</button>
                 <button onclick="openCourse('formateur')" class="flex items-center gap-3 text-base font-bold text-blue-600 text-start">
                     <i data-lucide="user-cog" class="w-5 h-5"></i>
                     <span data-i18n="nav-formateur">Espace Formateur</span>
@@ -168,172 +157,150 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm mb-8 border border-blue-100">
                         <span class="flex h-2 w-2 rounded-full bg-blue-600"></span>
-                        <span data-i18n="hero-badge-dev">Logiciels de Gestion & Apps</span>
+                        <span data-i18n="hero-badge-form">Formations 100% Pratiques</span>
                     </div>
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight max-w-5xl mx-auto leading-tight">
-                        <span data-i18n="hero-title-dev-1">Développement & Commercialisation</span> <br class="hidden md:block" />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" data-i18n="hero-title-dev-2">de Solutions Digitales</span>
+                        <span data-i18n="hero-title-form-1">Développez vos compétences</span> <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" data-i18n="hero-title-form-2">en Comptabilité & Gestion</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc-dev">
-                        Spécialisés dans le développement et la commercialisation de logiciels et d'applications de gestion d'entreprise. Nous vous offrons également des formations professionnelles et un accompagnement sur mesure pour optimiser vos performances.
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc-form">
+                        Accélérez votre carrière avec des formations professionnelles ciblées. Je vous accompagne pas à pas pour maîtriser la comptabilité et la gestion de manière concrète et efficace.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#services-dev" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-center" data-i18n="hero-btn-dev">
-                            Découvrir nos solutions
-                        </a>
-                        <button onclick="showFormations()" class="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-sm text-center" data-i18n="hero-btn-formations">
+                        <button onclick="showFormations()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-center" data-i18n="hero-btn-formations">
                             Voir nos formations
+                        </button>
+                        <button onclick="showContact()" class="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-sm text-center" data-i18n="hero-btn-about">
+                            En savoir plus sur moi
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Services & Accompagnement -->
-            <div id="services-dev" class="py-24 bg-gray-50">
+            <!-- SECTION : FORMATIONS (GRILLE COMPLÈTE) -->
+            <div id="formations-section" class="bg-gray-50 pb-20 pt-10">
+                <div class="bg-slate-900 py-16 mb-12 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05]"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                        <h2 class="text-4xl font-extrabold text-white mb-4" data-i18n="sec-courses-title">Nos Formations</h2>
+                        <p class="text-slate-300 text-lg max-w-2xl mx-auto" data-i18n="sec-courses-subtitle">Programmes conçus pour l'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.</p>
+                    </div>
+                </div>
+
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="services-title">Des outils performants pour votre entreprise</h2>
-                        <p class="text-lg text-gray-600" data-i18n="services-subtitle">Nous concevons, développons et commercialisons des solutions logicielles adaptées à la gestion de votre activité.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        <!-- Carte 1 : Comptabilité -->
+                        <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
+                            <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative">
+                                <i data-lucide="calculator" class="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="course-1-title">Comptabilité pratique</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Maîtrisez l’ensemble des opérations de la comptabilité complète.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-blue-600 font-bold text-sm border-t pt-4">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 2 : Bureautique -->
+                        <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
+                            <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative">
+                                <i data-lucide="monitor" class="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="course-2-title">Informatique bureautique</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-2-desc">Maîtrise des outils essentiels : Word, Excel et PowerPoint.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-purple-600 bg-purple-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-purple-600 font-bold text-sm border-t pt-4">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 3 : Gestion Commerciale -->
+                        <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
+                            <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative">
+                                <i data-lucide="briefcase" class="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="course-3-title">Gestion commerciale</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-3-desc">Gérez le cycle de vente, les stocks et la facturation client.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-emerald-600 font-bold text-sm border-t pt-4">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 4 : Excel Pro -->
+                        <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
+                            <div class="h-40 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center relative">
+                                <i data-lucide="file-spreadsheet" class="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="course-4-title">Excel professionnel</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-4-desc">Automatisation des calculs et création de rapports avancés.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-green-600 bg-green-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration-excel">24 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-green-600 font-bold text-sm border-t pt-4">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                                <i data-lucide="app-window" class="w-7 h-7 text-blue-600"></i>
+                    <!-- Stats -->
+                    <div class="bg-white rounded-3xl border border-gray-100 shadow-sm p-10 md:p-16">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-gray-100">
+                            <div class="py-4">
+                                <p class="text-5xl font-black text-blue-500 mb-3">+50</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-1">Stagiaires formés</p>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-1-title">Logiciels & Applications</h3>
-                            <p class="text-gray-600" data-i18n="feat-1-desc">Développement et commercialisation de logiciels de gestion complets et d'applications mobiles pour centraliser vos opérations.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
-                                <i data-lucide="graduation-cap" class="w-7 h-7 text-purple-600"></i>
+                            <div class="py-4">
+                                <p class="text-5xl font-black text-blue-400 mb-3">+150h</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-2">De contenu pratique</p>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-2-title">Formations Professionnelles</h3>
-                            <p class="text-gray-600" data-i18n="feat-2-desc">Des programmes de formation sur mesure pour développer vos compétences pratiques en gestion, comptabilité et informatique.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
-                                <i data-lucide="handshake" class="w-7 h-7 text-emerald-600"></i>
+                            <div class="py-4">
+                                <p class="text-5xl font-black text-emerald-500 mb-3">98%</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-3">Taux de satisfaction</p>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-3-title">Formation & Accompagnement</h3>
-                            <p class="text-gray-600" data-i18n="feat-3-desc">Installation, support technique et formations pratiques complètes pour vous et vos équipes de A à Z.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- NOUVELLE SECTION : Nos Logiciels & Applications -->
-            <div id="products-section" class="py-24 bg-white border-t border-gray-100">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="prod-title">Nos Logiciels & Applications</h2>
-                        <p class="text-lg text-gray-600" data-i18n="prod-subtitle">Découvrez nos solutions phares développées pour répondre à vos besoins spécifiques et digitaliser votre activité.</p>
-                    </div>
-
-                    <!-- Produit 1 : TAJIROX -->
-                    <div class="flex flex-col lg:flex-row items-center gap-12 mb-24">
-                        <div class="w-full lg:w-1/2 rounded-3xl overflow-hidden shadow-xl border border-gray-100 relative group">
-                            <!-- Image de substitution (Dashboard/POS) -->
-                            <img src="https://www.image2url.com/r2/default/images/1778336511325-719ff5da-882d-48cd-81e8-bc7462f3c954.png" alt="TAJIROX Dashboard" class="w-full h-auto object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                        </div>
-                        <div class="w-full lg:w-1/2 space-y-6">
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm border border-blue-100">
-                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                                <span data-i18n="tajirox-badge">Système POS & Gestion</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 leading-tight" data-i18n="tajirox-title">TAJIROX - Gérez votre commerce avec facilité et professionnalisme !</h3>
-                            <p class="text-gray-600 text-lg leading-relaxed" data-i18n="tajirox-desc">Un système intégré pour gérer les magasins commerciaux. Prenez le contrôle de tout depuis un seul endroit, depuis votre téléphone ou votre ordinateur.</p>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 font-medium mt-6">
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i><span data-i18n="tajirox-feat-1">Gestion des ventes et factures</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i><span data-i18n="tajirox-feat-2">Gestion des stocks et inventaire</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i><span data-i18n="tajirox-feat-3">Gestion des clients et fournisseurs</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i><span data-i18n="tajirox-feat-4">Gestion des chèques et traites</span></li>
-                            </ul>
-
-                            <div class="pt-4">
-                                <a href="https://www.tajirox.com" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30">
-                                    <span data-i18n="tajirox-link">Visitez www.tajirox.com</span>
-                                    <i data-lucide="external-link" class="w-5 h-5 rtl:mr-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Produit 2 : Logiciel Centres de Formation -->
-                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
-                        <div class="w-full lg:w-1/2 rounded-3xl overflow-hidden shadow-xl border border-gray-100 relative group">
-                            <!-- Image de substitution (Bureau/Logiciel) -->
-                            <img src="https://www.image2url.com/r2/default/images/1778336424545-531c1225-acd1-4d80-87fe-a0d64129665e.png" alt="Logiciel Centre Formation" class="w-full h-auto object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-cyan-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                        </div>
-                        <div class="w-full lg:w-1/2 space-y-6">
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 text-cyan-700 font-semibold text-sm border border-cyan-100">
-                                <i data-lucide="monitor" class="w-4 h-4"></i>
-                                <span data-i18n="center-badge">Application Desktop</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-900 leading-tight" data-i18n="center-title">Système de Gestion des Centres de Formation</h3>
-                            <p class="text-gray-600 text-lg leading-relaxed" data-i18n="center-desc">Dites adieu à la gestion chaotique et laissez votre centre fonctionner avec professionnalisme ! Une solution de bureau complète, ultra-rapide et fonctionnant même sans internet.</p>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 font-medium mt-6">
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 shrink-0"></i><span data-i18n="center-feat-1">Activation à vie (sans abonnement)</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 shrink-0"></i><span data-i18n="center-feat-2">Version personnalisée avec votre logo</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 shrink-0"></i><span data-i18n="center-feat-3">Gestion des élèves et professeurs</span></li>
-                                <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 shrink-0"></i><span data-i18n="center-feat-4">Feuilles de présence et finances</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Nos Clients -->
-            <div class="py-24 bg-gray-50 border-t border-gray-100">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-12">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="clients-title">Ils nous font confiance</h2>
-                        <p class="text-gray-500" data-i18n="clients-subtitle">Découvrez les entreprises et professionnels qui utilisent nos applications de gestion globale.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5 items-center justify-items-center opacity-70">
-                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
-                            <img class="h-16 md:h-20 object-contain" src="https://www.image2url.com/r2/default/images/1778020899733-1c26fdc4-32d7-4e7e-9428-3c4b218f2967.png" alt="Client 1">
-                        </div>
-                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
-                            <img class="h-12 md:h-16 object-contain" src="https://image2url.com/r2/default/images/1769967730671-de511dbd-7f92-44ff-bff5-ea5ba0252a63.png" alt="Client 2">
-                        </div>
-                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
-                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1777482925311-96d6aac2-7fd0-4b79-8ea8-2a13c372e468.png" alt="Client 3">
-                        </div>
-                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
-                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1778021717657-a61a2a66-88f9-49c7-98c7-82e0bbaf6d2f.png" alt="Client 4">
-                         </div>
-                        
-                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
-                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1778068036444-4278f164-605b-4302-bb71-fd78b4625f41.png" alt="Client 6">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section Formateur & Contact Unifiée -->
-            <div id="about-section" class="max-w-6xl mx-auto px-4 py-24 bg-white">
+            <!-- Section Formateur & Contact (Juste avant le Footer) -->
+            <div id="about-section" class="max-w-6xl mx-auto px-4 py-24 bg-transparent">
                 <div class="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden relative">
                     <div class="h-48 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400"></div>
                     <div class="px-6 md:px-12 pb-16 flex flex-col md:flex-row gap-12 relative">
-                        <!-- Photo & LinkedIn -->
                         <div class="-mt-24 shrink-0 flex flex-col items-center">
                             <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden mb-6">
                                 <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="El Houssine TAQI" class="w-full h-full object-cover">
                             </div>
-                            <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-500/20">
+                            <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-bold transition-all shadow-lg">
                                 <i data-lucide="linkedin" class="w-5 h-5 fill-current"></i>
                                 LinkedIn
                             </a>
                         </div>
 
-                        <!-- Infos & Contact -->
                         <div class="flex-1 mt-6">
                             <div class="mb-10 text-center md:text-start">
                                 <h3 class="text-4xl font-black text-gray-900 mb-2" data-i18n="instructor-name">El Houssine TAQI</h3>
@@ -348,15 +315,13 @@
                                 </div>
                             </div>
 
-                            <!-- Bloc Contact intégré avec accroche -->
                             <div class="border-t border-gray-100 pt-10">
                                 <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2 justify-center md:justify-start" data-i18n="contact-catchphrase">
                                     <i data-lucide="message-square" class="w-5 h-5 text-blue-600"></i>
-                                    Prêt à démarrer votre projet ? Contactez-moi directement :
+                                    Prêt à démarrer votre formation ? Contactez-moi directement :
                                 </h4>
                                 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <!-- Téléphone (Fixé pour l'arabe avec dir="ltr") -->
                                     <a href="tel:+212689178241" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all group">
                                         <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                             <i data-lucide="phone" class="w-6 h-6"></i>
@@ -367,7 +332,6 @@
                                         </div>
                                     </a>
 
-                                    <!-- Email -->
                                     <a href="mailto:taqihoussine@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all group">
                                         <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                             <i data-lucide="mail" class="w-6 h-6"></i>
@@ -384,142 +348,14 @@
                 </div>
             </div>
         </div>
-
-        <!-- VUE : FORMATIONS -->
-        <div id="formations-view" class="hidden view-section bg-gray-50 pb-20">
-            <!-- Entête Formations -->
-            <div class="bg-slate-900 py-16 mb-12 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05]"></div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h2 class="text-4xl font-extrabold text-white mb-4" data-i18n="sec-courses-title">Nos Formations</h2>
-                    <p class="text-slate-300 text-lg max-w-2xl mx-auto" data-i18n="sec-courses-subtitle">Programmes conçus pour l'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.</p>
-                </div>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Carte 1 -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
-                        <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
-                                <i data-lucide="calculator" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors" data-i18n="course-1-title">Comptabilité pratique</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-blue-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-blue-600 font-semibold group-hover:translate-x-1 transition-transform">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 2 -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
-                        <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
-                                <i data-lucide="monitor" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors" data-i18n="course-2-title">Informatique bureautique</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-2-desc">Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-purple-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-purple-600 font-semibold group-hover:translate-x-1 transition-transform">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 3 -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
-                        <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
-                                <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors" data-i18n="course-3-title">Gestion commerciale</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-3-desc">Apprenez à gérer efficacement le cycle de vente, les achats, la facturation et la relation client.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-emerald-600 font-semibold group-hover:translate-x-1 transition-transform">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 4 -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
-                                <i data-lucide="file-spreadsheet" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors" data-i18n="course-4-title">Excel professionnel</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-4-desc">Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-green-500"></i>
-                                <span data-i18n="course-duration-excel">24 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-green-600 font-semibold group-hover:translate-x-1 transition-transform">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Formations -->
-                <div class="bg-white rounded-3xl border border-gray-100 shadow-sm mt-16 p-10 md:p-16">
-                    <h3 class="text-2xl font-bold text-center text-gray-900 mb-12" data-i18n="sec-stats-title">L'impact de nos formations</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-gray-100">
-                        <div class="py-4">
-                            <p class="text-5xl font-black text-blue-500 mb-3">+50</p>
-                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-1">Stagiaires formés</p>
-                        </div>
-                        <div class="py-4">
-                            <p class="text-5xl font-black text-blue-400 mb-3">+150h</p>
-                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-2">De contenu pratique</p>
-                        </div>
-                        <div class="py-4">
-                            <p class="text-5xl font-black text-emerald-500 mb-3">98%</p>
-                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-3">Taux de satisfaction</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <!-- Footer Global -->
     <footer id="main-footer" class="bg-white border-t border-gray-200 mt-auto py-10 transition-opacity duration-500 hidden-on-course">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
             <div class="flex items-center gap-3">
                 <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-12 md:h-16 w-auto max-w-[250px] object-contain">
                 <div class="flex flex-col border-l border-gray-200 pl-3 ml-1">
-                    <span class="text-xs text-gray-400 font-semibold" data-i18n="footer-sub">Logiciels, Gestion & Formations</span>
+                    <span class="text-xs text-gray-400 font-semibold" data-i18n="footer-sub">Formateur en Comptabilité & Gestion</span>
                 </div>
             </div>
             <div class="text-center md:text-end">
@@ -544,22 +380,10 @@
         </header>
 
         <main class="flex-1 w-full bg-white relative overflow-hidden">
-            <!-- Loading -->
             <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
                 <i data-lucide="loader-2" class="w-10 h-10 text-blue-600 animate-spin mb-4"></i>
                 <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Chargement de l'espace...</p>
             </div>
-            
-            <!-- Maintenance -->
-            <div id="course-maintenance" class="hidden absolute inset-0 flex-col items-center justify-center z-20 bg-white">
-                <div class="bg-blue-50 p-6 rounded-full mb-6">
-                    <i data-lucide="settings" class="w-12 h-12 text-blue-600 animate-[spin_4s_linear_infinite]"></i>
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3" data-i18n="maintenance-title">Espace en maintenance</h2>
-                <p class="text-gray-500 text-center max-w-md px-4 leading-relaxed" data-i18n="maintenance-desc">Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.</p>
-            </div>
-
-            <!-- Iframe -->
             <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
         </main>
     </div>
@@ -570,148 +394,80 @@
         const translations = {
             'fr': {
                 'nav-home': 'Accueil',
-                'nav-services': 'Solutions & Logiciels',
                 'nav-courses': 'Formations',
                 'nav-contact': 'Contact',
                 'nav-formateur': 'Espace Formateur',
                 'instructor-name': 'El Houssine TAQI',
-                'hero-badge-dev': 'Logiciels de Gestion & Apps',
-                'hero-title-dev-1': 'Développement & Commercialisation',
-                'hero-title-dev-2': 'de Solutions Digitales',
-                'hero-desc-dev': 'Spécialisés dans le développement et la commercialisation de logiciels et d\'applications de gestion d\'entreprise. Nous vous offrons également des formations professionnelles et un accompagnement sur mesure pour optimiser vos performances.',
-                'hero-btn-dev': 'Découvrir nos solutions',
+                'hero-badge-form': 'Formations 100% Pratiques',
+                'hero-title-form-1': 'Développez vos compétences',
+                'hero-title-form-2': 'en Comptabilité & Gestion',
+                'hero-desc-form': 'Accélérez votre carrière avec des formations professionnelles ciblées. Je vous accompagne pas à pas pour maîtriser la comptabilité et la gestion de manière concrète et efficace.',
                 'hero-btn-formations': 'Voir nos formations',
-                'services-title': 'Des outils performants pour votre entreprise',
-                'services-subtitle': 'Nous concevons, développons et commercialisons des solutions logicielles adaptées à votre activité.',
-                'feat-1-title': 'Logiciels & Applications',
-                'feat-1-desc': 'Développement et commercialisation de logiciels de gestion complets et d\'applications mobiles pour centraliser vos opérations.',
-                'feat-2-title': 'Formations Professionnelles',
-                'feat-2-desc': 'Des programmes de formation sur mesure pour développer vos compétences pratiques en gestion, comptabilité et informatique.',
-                'feat-3-title': 'Formation & Accompagnement',
-                'feat-3-desc': 'Installation, support technique et formations pratiques complètes pour vous et vos équipes de A à Z.',
-                
-                // Traductions de la nouvelle section Produits
-                'prod-title': 'Nos Logiciels & Applications',
-                'prod-subtitle': 'Découvrez nos solutions phares développées pour répondre à vos besoins spécifiques et digitaliser votre activité.',
-                'tajirox-badge': 'Système POS & Gestion',
-                'tajirox-title': 'TAJIROX - Gérez votre commerce avec facilité et professionnalisme !',
-                'tajirox-desc': 'Un système intégré pour gérer les magasins commerciaux. Prenez le contrôle de tout depuis un seul endroit, depuis votre téléphone ou votre ordinateur.',
-                'tajirox-feat-1': 'Gestion des ventes et factures',
-                'tajirox-feat-2': 'Gestion des stocks et inventaire',
-                'tajirox-feat-3': 'Gestion des clients et fournisseurs',
-                'tajirox-feat-4': 'Gestion des chèques et traites',
-                'tajirox-link': 'Visitez www.tajirox.com',
-                'center-badge': 'Application Desktop',
-                'center-title': 'Système de Gestion des Centres de Formation',
-                'center-desc': 'Dites adieu à la gestion chaotique et faites fonctionner votre centre avec professionnalisme ! Une solution pratique et rapide, fonctionnant sans connexion internet, pour organiser toutes les opérations de votre centre depuis un seul endroit.',
-                'center-feat-1': 'Activation à vie (sans abonnement)',
-                'center-feat-2': 'Version personnalisée avec votre logo',
-                'center-feat-3': 'Gestion des élèves et professeurs',
-                'center-feat-4': 'Feuilles de présence et finances',
-
-                'clients-title': 'Ils nous font confiance',
-                'clients-subtitle': 'Découvrez les entreprises et professionnels qui utilisent nos applications de gestion globale.',
-                'contact-title': 'Contactez-nous',
-                'contact-catchphrase': 'Prêt à démarrer votre projet ? Contactez-moi directement :',
-                'contact-phone-label': 'Téléphone',
-                'contact-email-label': 'Email',
+                'hero-btn-about': 'En savoir plus sur moi',
                 'sec-courses-title': 'Nos Formations',
                 'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
+                'course-1-title': 'Comptabilité pratique',
+                'course-1-desc': 'Maîtrisez l’ensemble des opérations de la comptabilité complète.',
+                'course-2-title': 'Informatique bureautique',
+                'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
+                'course-3-title': 'Gestion commerciale',
+                'course-3-desc': 'Gérez le cycle de vente, les stocks et la facturation client.',
+                'course-4-title': 'Excel professionnel',
+                'course-4-desc': 'Automatisation des calculs et rapports avancés.',
                 'course-duration': '36 heures',
                 'course-duration-excel': '24 heures',
-                'course-btn': 'Accéder à la formation',
+                'course-btn': 'Accéder',
                 'sec-stats-title': 'L\'impact de nos formations',
                 'stat-1': 'Stagiaires formés',
                 'stat-2': 'De contenu pratique',
                 'stat-3': 'Taux de satisfaction',
                 'about-job': 'Formateur en Comptabilité et Gestion',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
+                'contact-catchphrase': 'Prêt à démarrer votre formation ? Contactez-moi directement :',
+                'contact-phone-label': 'Téléphone',
+                'contact-email-label': 'Email',
                 'reader-back': 'Quitter',
                 'reader-loading': 'Chargement de l\'espace', 
-                'course-1-title': 'Comptabilité pratique',
-                'course-1-desc': 'Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.',
-                'course-2-title': 'Informatique bureautique',
-                'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
-                'course-3-title': 'Gestion commerciale',
-                'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
-                'course-4-title': 'Excel professionnel',
-                'course-4-desc': 'Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.',
-                'maintenance-title': 'Espace en maintenance',
-                'maintenance-desc': 'Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.',
-                'footer-sub': 'Logiciels, Gestion & Formations',
+                'footer-sub': 'Formateur en Comptabilité & Gestion',
                 'copyright': `© ${currentYear} El Houssine TAQI. Tous droits réservés.`
             },
             'ar': {
                 'nav-home': 'الرئيسية',
-                'nav-services': 'حلول وبرمجيات',
                 'nav-courses': 'التكوينات',
                 'nav-contact': 'اتصل بنا',
                 'nav-formateur': 'فضاء المكون',
                 'instructor-name': 'الحسين تاقي',
-                'hero-badge-dev': 'تطبيقات وبرمجيات الإدارة',
-                'hero-title-dev-1': 'تطوير وتسويق',
-                'hero-title-dev-2': 'الحلول الرقمية',
-                'hero-desc-dev': 'متخصصون في تطوير وتسويق برمجيات وتطبيقات إدارة الشركات. كما نقدم تكوينات مهنية ومرافقة مخصصة لتحسين أدائك وتطوير مهاراتك.',
-                'hero-btn-dev': 'اكتشف حلولنا',
+                'hero-badge-form': 'تكوينات تطبيقية 100%',
+                'hero-title-form-1': 'طور مهاراتك المهنية',
+                'hero-title-form-2': 'في المحاسبة والتدبير',
+                'hero-desc-form': 'سرّع مسارك المهني مع تكوينات دقيقة وموجهة. أرافقك خطوة بخطوة لإتقان المحاسبة والتدبير بشكل عملي وفعال.',
                 'hero-btn-formations': 'اطلع على دوراتنا',
-                'services-title': 'أدوات قوية وفعالة لشركتك',
-                'services-subtitle': 'نقوم بتصميم وتطوير وتسويق حلول برمجية تتناسب مع نشاطك.',
-                'feat-1-title': 'برمجيات وتطبيقات',
-                'feat-1-desc': 'تطوير وتسويق برمجيات إدارة متكاملة وتطبيقات محمولة لمركزة عملياتك بشكل فعال.',
-                'feat-2-title': 'تكوينات مهنية',
-                'feat-2-desc': 'برامج تكوينية مخصصة لتطوير مهاراتك التطبيقية في الإدارة، المحاسبة والمعلوميات.',
-                'feat-3-title': 'تكوين ومرافقة',
-                'feat-3-desc': 'التثبيت والدعم الفني وتكوينات تطبيقية شاملة لك ولفريقك من الألف إلى الياء.',
-
-                // Traductions de la nouvelle section Produits
-                'prod-title': 'برمجياتنا وتطبيقاتنا',
-                'prod-subtitle': 'اكتشف حلولنا الرائدة المصممة لتلبية احتياجاتك الخاصة ورقمنة نشاطك التجاري.',
-                'tajirox-badge': 'نظام نقاط البيع والإدارة',
-                'tajirox-title': 'مع TAJIROX دبر تجارتك بسهولة واحترافية!',
-                'tajirox-desc': 'نظام متكامل لإدارة المحلات التجارية كيعاونك تتحكم فكلشي من بلاصة وحدة، وتخدم من الهاتف أو الحاسوب بكل سهولة.',
-                'tajirox-feat-1': 'إدارة المبيعات والفواتير',
-                'tajirox-feat-2': 'إدارة المخزون',
-                'tajirox-feat-3': 'إدارة الزبناء والموردين',
-                'tajirox-feat-4': 'إدارة الشيكات والكمبيالات',
-                'tajirox-link': 'قم بزيارة www.tajirox.com',
-                'center-badge': 'تطبيق ويندوز مكتبي',
-                'center-title': 'نظام تسيير مراكز التكوين والدعم',
-                'center-desc': 'ودّع التسيير العشوائي، واجعل مركزك يعمل باحترافية! حل عملي وسريع يعمل بدون اتصال بالإنترنت، لتنظيم جميع عمليات مركزك من مكان واحد.',
-                'center-feat-1': 'تفعيل مدى الحياة (بدون اشتراك)',
-                'center-feat-2': 'نسخة مخصصة بشعارك واسمك',
-                'center-feat-3': 'تدبير شؤون التلاميذ والأساتذة',
-                'center-feat-4': 'أوراق الحضور والمنظومة المالية',
-
-                'clients-title': 'يثقون بنا',
-                'clients-subtitle': 'اكتشف الشركات والمهنيين الذين يستخدمون تطبيقاتنا للإدارة الشاملة.',
-                'contact-title': 'اتصل بنا',
-                'contact-catchphrase': 'هل أنت جاهز لبدء مشروعك؟ اتصل بي مباشرة:',
-                'contact-phone-label': 'الهاتف',
-                'contact-email-label': 'البريد الإلكتروني',
+                'hero-btn-about': 'اكتشف المزيد عني',
                 'sec-courses-title': 'دوراتنا التكوينية',
                 'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
+                'course-1-title': 'المحاسبة التطبيقية',
+                'course-1-desc': 'إتقان جميع عمليات المحاسبة الكاملة بشكل عملي.',
+                'course-2-title': 'المعلوميات المكتبية',
+                'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
+                'course-3-title': 'التدبير التجاري',
+                'course-3-desc': 'تعلم كيفية إدارة المبيعات، المخزون والفواتير بفعالية.',
+                'course-4-title': 'إكسيل الاحترافي',
+                'course-4-desc': 'أتمتة الحسابات وإنشاء تقارير مهنية متقدمة.',
                 'course-duration': '36 ساعة',
                 'course-duration-excel': '24 ساعة',
-                'course-btn': 'الدخول للدورة',
+                'course-btn': 'الدخول',
                 'sec-stats-title': 'تأثير دوراتنا',
                 'stat-1': 'متدرب مكون',
                 'stat-2': 'من المحتوى التطبيقي',
                 'stat-3': 'نسبة الرضا',
                 'about-job': 'مكون في المحاسبة و التدبير',
                 'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
+                'contact-catchphrase': 'هل أنت جاهز لبدء تكوينك؟ اتصل بي مباشرة:',
+                'contact-phone-label': 'الهاتف',
+                'contact-email-label': 'البريد الإلكتروني',
                 'reader-back': 'رجوع',
                 'reader-loading': 'جاري التحميل ...',
-                'course-1-title': 'المحاسبة التطبيقية',
-                'course-1-desc': 'مسار أساسي لإتقان جميع عمليات المحاسبة الكاملة.',
-                'course-2-title': 'المعلوميات المكتبية',
-                'course-2-desc': 'تطوير مهارات قوية في الأدوات الأساسية: Word و Excel و PowerPoint.',
-                'course-3-title': 'التدبير التجاري',
-                'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
-                'course-4-title': 'إكسيل الاحترافي',
-                'course-4-desc': 'إتقان وظائف إكسيل الأساسية لأتمتة الحسابات وتحليل البيانات وإنشاء تقارير مهنية.',
-                'maintenance-title': 'فضاء قيد الصيانة',
-                'maintenance-desc': 'هذه الوحدة قيد التحديث حالياً. ستتوفر قريباً.',
-                'footer-sub': 'برمجيات، تسيير وتكوين',
+                'footer-sub': 'مكون في المحاسبة والتدبير',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
         };
@@ -722,32 +478,27 @@
             'compta': {
                 title_fr: 'Comptabilité pratique',
                 title_ar: 'المحاسبة التطبيقية',
-                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec',
-                maintenance: false
-            },
-            'gestion': {
-                title_fr: 'Gestion commerciale',
-                title_ar: 'التدبير التجاري',
-                url: '',
-                maintenance: true
+                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec'
             },
             'informatique': {
                 title_fr: 'Informatique bureautique',
                 title_ar: 'المعلوميات المكتبية',
-                url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec',
-                maintenance: false
+                url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec'
+            },
+            'gestion': {
+                title_fr: 'Gestion commerciale',
+                title_ar: 'التدبير التجاري',
+                url: '' // Lien à ajouter si disponible
             },
             'excel': {
                 title_fr: 'Excel professionnel',
                 title_ar: 'إكسيل الاحترافي',
-                url: '', 
-                maintenance: true
+                url: '' // Lien à ajouter si disponible
             },
             'formateur': {
                 title_fr: 'Espace Formateur',
                 title_ar: 'فضاء المكون',
-                url: 'https://script.google.com/macros/s/AKfycbzt_9rWLIMXc1VOP66NCWpBG8Rsc8c8BBF7Q1Ji80BEFZgbRlDZ0PbPwRUdeOjz6Pj7xw/exec',
-                maintenance: false
+                url: 'https://script.google.com/macros/s/AKfycbzt_9rWLIMXc1VOP66NCWpBG8Rsc8c8BBF7Q1Ji80BEFZgbRlDZ0PbPwRUdeOjz6Pj7xw/exec'
             }
         };
 
@@ -762,12 +513,8 @@
             document.documentElement.lang = currentLang;
             
             const langLabel = document.getElementById('lang-label');
-            if (langLabel) {
-                langLabel.textContent = currentLang === 'fr' ? 'العربية' : 'Français';
-            }
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+            if (langLabel) langLabel.textContent = currentLang === 'fr' ? 'العربية' : 'Français';
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function toggleLanguage() {
@@ -775,47 +522,36 @@
             updateContent();
         }
 
-        /* NAVIGATION SPA */
-        function showHome() {
+        function ensureHomeView() {
             const homeView = document.getElementById('home-view');
-            const formationsView = document.getElementById('formations-view');
             const mainWrapper = document.getElementById('main-wrapper');
+            const courseView = document.getElementById('course-view');
 
+            if(courseView && !courseView.classList.contains('hidden')) closeCourse();
             if(homeView) homeView.classList.remove('hidden');
-            if(formationsView) formationsView.classList.add('hidden');
             if(mainWrapper) mainWrapper.classList.remove('hidden');
-            
-            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            ensureHomeView();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             closeMobileMenu();
         }
 
         function showFormations() {
-            const homeView = document.getElementById('home-view');
-            const formationsView = document.getElementById('formations-view');
-            const mainWrapper = document.getElementById('main-wrapper');
-
-            // En cachant le homeView, la carte formateur (#about-section) est automatiquement masquée.
-            if(homeView) homeView.classList.add('hidden'); 
-            if(formationsView) formationsView.classList.remove('hidden');
-            if(mainWrapper) mainWrapper.classList.remove('hidden');
-
-            window.scrollTo(0, 0);
-            closeMobileMenu();
-        }
-
-        function showServices() {
-            showHome();
+            ensureHomeView();
             setTimeout(() => {
-                const servicesSection = document.getElementById('services-dev');
-                if (servicesSection) {
-                    const y = servicesSection.getBoundingClientRect().top + window.scrollY - 80;
+                const section = document.getElementById('formations-section');
+                if (section) {
+                    const y = section.getBoundingClientRect().top + window.scrollY - 80;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             }, 50);
+            closeMobileMenu();
         }
 
         function showContact() {
-            showHome();
+            ensureHomeView();
             setTimeout(() => {
                 const contactSection = document.getElementById('about-section');
                 if (contactSection) {
@@ -823,35 +559,18 @@
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             }, 50);
+            closeMobileMenu();
         }
 
         function openCourse(courseId) {
             const course = coursesData[courseId];
-            if (!course) return;
+            if (!course || !course.url) return;
 
             const iframe = document.getElementById('course-iframe');
-            const maintenanceView = document.getElementById('course-maintenance');
             const courseTitle = document.getElementById('course-title');
 
-            if (courseTitle) {
-                courseTitle.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-            }
-
-            if (course.maintenance) {
-                if(iframe) iframe.classList.add('hidden');
-                if(maintenanceView) {
-                    maintenanceView.classList.remove('hidden');
-                    maintenanceView.classList.add('flex');
-                }
-                if(iframe) iframe.src = '';
-            } else {
-                if(iframe) iframe.classList.remove('hidden');
-                if(maintenanceView) {
-                    maintenanceView.classList.add('hidden');
-                    maintenanceView.classList.remove('flex');
-                }
-                if(iframe) iframe.src = course.url;
-            }
+            if (courseTitle) courseTitle.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+            if (iframe) iframe.src = course.url;
 
             document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.add('hidden'));
             const mainWrapper = document.getElementById('main-wrapper');
@@ -875,7 +594,6 @@
             if(iframe) iframe.src = '';
         }
 
-        /* MENU MOBILE */
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
@@ -899,7 +617,6 @@
             });
         }
 
-        /* CHARGEMENT */
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
             const mainContent = document.getElementById('main-wrapper');
@@ -916,7 +633,6 @@
             }, 1200);
         });
 
-        // Init
         updateContent();
     </script>
 </body>
