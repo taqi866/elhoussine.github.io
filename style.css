@@ -1,0 +1,94 @@
+:root {
+    --font-fr: 'Inter', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+}
+@font-face {
+    font-family: 'Cairo';
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+html[lang="fr"] body { font-family: var(--font-fr); }
+html[lang="ar"] body { font-family: var(--font-ar); }
+.arabic-text { font-family: var(--font-ar) !important; }
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed; inset: 0; z-index: 9999; background: white;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.6s ease-out, visibility 0.6s;
+}
+
+.logo-pulse { animation: pulse-custom 2s infinite ease-in-out; }
+@keyframes pulse-custom {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.9; }
+}
+
+.loader-line {
+    width: 120px; height: 3px; background: #f3f4f6;
+    border-radius: 10px; overflow: hidden; margin-top: 32px; position: relative;
+}
+.loader-line::after {
+    content: ''; position: absolute; left: -50%; height: 100%; width: 50%;
+    background: linear-gradient(90deg, #2563eb, #3b82f6); border-radius: 10px;
+    animation: line-anim 1.5s infinite linear;
+}
+@keyframes line-anim { 0% { left: -50%; } 100% { left: 100%; } }
+
+/* View Section Fade */
+.view-section { animation: fadeIn 0.4s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Dynamic Classes & Keyframes */
+.float-anim { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.blob { animation: blob 10s infinite alternate; }
+@keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* Scroll Reveal Animations */
+.reveal-up {
+    opacity: 0; transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal-left {
+    opacity: 0; transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal-right {
+    opacity: 0; transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal-scale {
+    opacity: 0; transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-up.is-visible, .reveal-left.is-visible, .reveal-right.is-visible, .reveal-scale.is-visible {
+    opacity: 1; transform: translate(0) scale(1);
+}
+
+/* Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Interactive Buttons */
+.btn-press:active { transform: scale(0.96); }
+
+/* Navbar Glassmorphism scroll effect */
+.header-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}

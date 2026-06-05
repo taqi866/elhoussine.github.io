@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL HOUSSINE TAQI - Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion</title> 
+    <link rel="icon" type="image/png" href="/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900 overflow-hidden flex flex-col min-h-screen">
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="flex flex-col items-center px-4 w-full max-w-lg">
+            <div class="logo-pulse flex justify-center items-center w-full">
+                <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain drop-shadow-xl">
+            </div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Header Global -->
+    <header id="main-header" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-transparent transition-all duration-300 opacity-0 hidden-on-course">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-3 cursor-pointer group flex-shrink-0" onclick="showHome()">
+                <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-14 md:h-20 w-auto max-w-[250px] md:max-w-[400px] object-contain group-hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <button onclick="showHome()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 relative overflow-hidden group transition-colors" data-i18n="nav-home">
+                    Accueil
+                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </button>
+                <button onclick="showFormations()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 relative overflow-hidden group transition-colors" data-i18n="nav-courses">
+                    Formations
+                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </button>
+                <button onclick="showTajirox()" class="text-sm font-semibold text-blue-600 hover:text-blue-800 relative overflow-hidden group transition-colors" data-i18n="nav-tajirox">
+                    Système TAJIROX
+                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transform scale-x-100 transition-transform duration-300"></span>
+                </button>
+                <button onclick="showContact()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 relative overflow-hidden group transition-colors" data-i18n="nav-contact">
+                    Contact
+                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </button>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-sm font-bold transition-all border border-gray-200 btn-press hover:shadow-md">
+                    <i data-lucide="languages" class="w-4 h-4 text-blue-600"></i>
+                    <span id="lang-label">العربية</span>
+                </button>
+            </nav>
+
+            <div class="flex items-center gap-2 md:hidden">
+                <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-blue-600 btn-press">
+                    <i data-lucide="languages" class="w-5 h-5"></i>
+                </button>
+                <button id="mobile-menu-btn" class="flex items-center justify-center p-2 text-gray-600 hover:text-blue-600 focus:outline-none btn-press">
+                    <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-xl z-40 transform origin-top transition-transform duration-300">
+            <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
+                <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
+                <button onclick="showFormations()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
+                <button onclick="showTajirox()" class="mobile-link flex items-center gap-3 text-base font-semibold text-blue-600 text-start hover:text-blue-800 transition-colors" data-i18n="nav-tajirox">Système TAJIROX</button>
+                <button onclick="showContact()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-contact">Contact</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteneur Principal -->
+    <main class="flex-1 pt-16 md:pt-20 transition-opacity duration-500 opacity-0" id="main-wrapper">
+        
+        <!-- VUE : ACCUEIL -->
+        <div id="home-view" class="view-section">
+            <!-- Hero Section -->
+            <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
+                <!-- Background Animated Shapes -->
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+                    <div class="blob absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-100 mix-blend-multiply filter blur-3xl opacity-50"></div>
+                    <div class="blob absolute top-[20%] right-[-10%] w-[30vw] h-[30vw] rounded-full bg-cyan-100 mix-blend-multiply filter blur-3xl opacity-50 animation-delay-2000"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <div class="reveal-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-sm text-blue-700 font-semibold text-sm mb-8 border border-blue-100 shadow-sm hover:shadow-md transition-shadow cursor-default">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-600 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        </span>
+                        <span data-i18n="hero-badge-form">Formations 100% Pratiques & Système de Gestion</span>
+                    </div>
+                    <h2 class="reveal-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight max-w-5xl mx-auto leading-tight">
+                        <span data-i18n="hero-title-form-1">Solution de Gestion TAJIROX</span> <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" data-i18n="hero-title-form-2">& Formations en Comptabilité & Gestion</span>
+                    </h2>
+                    <p class="reveal-up delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc-form">
+                        Accélérez votre carrière avec des formations professionnelles ciblées ou propulsez votre commerce avec notre système de gestion intégré TAJIROX.
+                    </p>
+                    <div class="reveal-up delay-300 flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="showTajirox()" class="btn-press bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 text-center hover:-translate-y-1" data-i18n="hero-btn-tajirox">
+                            Découvrir TAJIROX
+                        </button>
+                        <button onclick="showFormations()" class="btn-press bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-md text-center hover:-translate-y-1" data-i18n="hero-btn-formations">
+                            Voir nos formations
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION : FORMATIONS -->
+            <div id="formations-section" class="bg-gray-50 pb-20 pt-10">
+                <div class="bg-slate-900 py-16 mb-12 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] group-hover:opacity-[0.1] transition-opacity duration-1000"></div>
+                    <!-- Animated gradient overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[2s] ease-in-out"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal-up">
+                        <h2 class="text-4xl font-extrabold text-white mb-4" data-i18n="sec-courses-title">Nos Formations</h2>
+                        <p class="text-slate-300 text-lg max-w-2xl mx-auto" data-i18n="sec-courses-subtitle">Programmes conçus pour l'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        <!-- Carte 1 -->
+                        <div class="reveal-up delay-100 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
+                            <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                                <i data-lucide="calculator" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors" data-i18n="course-1-title">Comptabilité pratique</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Maîtrisez l’ensemble des opérations de la comptabilité complète.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-blue-600 font-bold text-sm border-t pt-4 group-hover:pl-2 transition-all">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 2 -->
+                        <div class="reveal-up delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
+                            <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                                <i data-lucide="monitor" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors" data-i18n="course-2-title">Informatique bureautique</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-2-desc">Maîtrise des outils essentiels : Word, Excel et PowerPoint.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-purple-600 bg-purple-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-purple-600 font-bold text-sm border-t pt-4 group-hover:pl-2 transition-all">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 3 -->
+                        <div class="reveal-up delay-300 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
+                            <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                                <i data-lucide="briefcase" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors" data-i18n="course-3-title">Gestion commerciale</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-3-desc">Gérez le cycle de vente, les stocks et la facturation client.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration">36 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-emerald-600 font-bold text-sm border-t pt-4 group-hover:pl-2 transition-all">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Carte 4 -->
+                        <div class="reveal-up delay-400 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
+                            <div class="h-40 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                                <i data-lucide="file-spreadsheet" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors" data-i18n="course-4-title">Excel professionnel</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-4-desc">Automatisation des calculs et création de rapports avancés.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-green-600 bg-green-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-duration-excel">24 heures</span>
+                                </div>
+                                <button class="w-full flex justify-between items-center text-green-600 font-bold text-sm border-t pt-4 group-hover:pl-2 transition-all">
+                                    <span data-i18n="course-btn">Accéder</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180 transform group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Dynamic -->
+                    <div class="reveal-scale bg-white rounded-3xl border border-gray-100 shadow-sm p-10 md:p-16 overflow-hidden relative">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-gray-100 relative z-10">
+                            <div class="py-4 hover:scale-105 transition-transform duration-300">
+                                <p class="text-5xl font-black text-blue-500 mb-3"><span class="stat-number" data-target="50">0</span>+</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-1">Stagiaires formés</p>
+                            </div>
+                            <div class="py-4 hover:scale-105 transition-transform duration-300">
+                                <p class="text-5xl font-black text-blue-400 mb-3"><span class="stat-number" data-target="150">0</span>h+</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-2">De contenu pratique</p>
+                            </div>
+                            <div class="py-4 hover:scale-105 transition-transform duration-300">
+                                <p class="text-5xl font-black text-emerald-500 mb-3"><span class="stat-number" data-target="98">0</span>%</p>
+                                <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-3">Taux de satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION : SYSTÈME TAJIROX -->
+            <div id="tajirox-section" class="bg-white py-24 border-b border-gray-100 relative overflow-hidden">
+                <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] bg-blue-50 rounded-full blur-[100px] opacity-60 pointer-events-none"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    
+                    <div class="text-center mb-16 reveal-up">
+                        <div class="inline-flex items-center justify-center p-3 bg-blue-50 rounded-2xl mb-4 text-blue-600 animate-bounce">
+                            <i data-lucide="store" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-i18n="taj-main-title">Système TAJIROX</h2>
+                        <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-i18n="taj-main-subtitle">La solution ultime dédiée aux commerçants pour la gestion globale de votre activité, de vos stocks à votre trésorerie.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- Illustration (Image) -->
+                        <div class="reveal-left relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 group float-anim">
+                            <img src="https://www.image2url.com/r2/default/images/1780583036489-2e21e844-7f9c-4e22-8a97-dcfc72f345c8.png" 
+                                 alt="Interface du Système TAJIROX" 
+                                 class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-blue-500/50 animate-pulse">TAJIROX v1.0</span>
+                            </div>
+                        </div>
+
+                        <!-- Grille des fonctionnalités -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Feats avec animations de survol -->
+                            <div class="reveal-right delay-100 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-blue-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="layout-dashboard" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f1-title">Tableau de Bord</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f1-desc">Aperçu général des ventes, bénéfices et dépenses en temps réel.</p>
+                            </div>
+
+                            <div class="reveal-right delay-200 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-indigo-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="package" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f2-title">Gestion de Stock</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f2-desc">Suivi précis des produits, des alertes et des quantités disponibles.</p>
+                            </div>
+
+                            <div class="reveal-right delay-300 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-emerald-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="file-text" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f3-title">Factures Pro</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f3-desc">Édition professionnelle de factures de vente et de services.</p>
+                            </div>
+
+                            <div class="reveal-right delay-400 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-purple-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="users" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f4-title">Clients & Fournisseurs</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f4-desc">Suivi détaillé des dettes, des créances et des paiements.</p>
+                            </div>
+
+                            <div class="reveal-right delay-100 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-orange-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600 mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="pie-chart" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f5-title">Rapports Intelligents</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f5-desc">Analyse approfondie des profits, des pertes et des performances.</p>
+                            </div>
+
+                            <div class="reveal-right delay-200 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-red-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center text-red-600 mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="trending-down" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f6-title">Gestion des Dépenses</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f6-desc">Suivi rigoureux et contrôle précis de l'ensemble des dépenses.</p>
+                            </div>
+
+                            <div class="reveal-right delay-300 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-cyan-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center text-cyan-600 mb-4 group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="credit-card" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f7-title">Chèques et Traites</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f7-desc">Suivi proactif des échéances bancaires et des encaissements.</p>
+                            </div>
+
+                            <div class="reveal-right delay-400 bg-gray-50 p-5 rounded-2xl border border-gray-100 hover:border-teal-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                                <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 mb-4 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="landmark" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="taj-f8-title">Gestion de Trésorerie</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n="taj-f8-desc">Suivi des soldes, transferts et état global de liquidité.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Bouton pour ouvrir le lien -->
+                    <div class="mt-16 text-center reveal-up">
+                        <a href="https://tajirox.com/" target="_blank" class="btn-press inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-10 rounded-full transition-all shadow-xl hover:shadow-blue-500/40 transform hover:-translate-y-1">
+                            <span data-i18n="taj-btn">Accéder au système TAJIROX</span>
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section Formateur & Contact (Juste avant le Footer) -->
+            <div id="about-section" class="max-w-6xl mx-auto px-4 py-24 bg-transparent reveal-scale">
+                <div class="bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden relative group">
+                    <!-- Dynamic Top Gradient -->
+                    <div class="h-48 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 bg-[length:200%_auto] animate-pulse"></div>
+                    <div class="px-6 md:px-12 pb-16 flex flex-col md:flex-row gap-12 relative">
+                        <div class="-mt-24 shrink-0 flex flex-col items-center">
+                            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-8 border-white shadow-xl bg-white overflow-hidden mb-6 transform group-hover:scale-105 transition-transform duration-500">
+                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="El Houssine TAQI" class="w-full h-full object-cover">
+                            </div>
+                            <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="btn-press inline-flex items-center gap-2 px-8 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-bold transition-all shadow-lg hover:shadow-[#0A66C2]/40 hover:-translate-y-1">
+                                <i data-lucide="linkedin" class="w-5 h-5 fill-current"></i>
+                                LinkedIn
+                            </a>
+                        </div>
+
+                        <div class="flex-1 mt-6">
+                            <div class="mb-10 text-center md:text-start">
+                                <h3 class="text-4xl font-black text-gray-900 mb-2" data-i18n="instructor-name">El Houssine TAQI</h3>
+                                <p class="text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-bold mb-6" data-i18n="about-job">Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion</p>
+                                
+                                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-blue-50/50 p-5 rounded-2xl border border-blue-100 text-start w-full md:w-fit hover:shadow-md transition-shadow">
+                                    <i data-lucide="award" class="w-8 h-8 text-blue-600 shrink-0"></i>
+                                    <span class="text-sm text-gray-700 leading-relaxed" data-i18n="about-edu">
+                                        Master spécialisé en Finance-Contrôle de Gestion<br>
+                                        <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-10">
+                                <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2 justify-center md:justify-start" data-i18n="contact-catchphrase">
+                                    <i data-lucide="message-square" class="w-5 h-5 text-blue-600"></i>
+                                    Prêt à démarrer ou besoin d'infos ? Contactez-moi :
+                                </h4>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <a href="tel:+212689178241" class="btn-press flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-300 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/btn">
+                                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover/btn:bg-blue-600 group-hover/btn:text-white transition-colors duration-300">
+                                            <i data-lucide="phone" class="w-6 h-6 group-hover/btn:scale-110 transition-transform"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="contact-phone-label">Téléphone</p>
+                                            <p class="text-base font-bold text-gray-900" dir="ltr">+212 689 17 82 41</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="mailto:contact@elhoussinetaqi.com" class="btn-press flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-300 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/btn">
+                                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover/btn:bg-blue-600 group-hover/btn:text-white transition-colors duration-300">
+                                            <i data-lucide="mail" class="w-6 h-6 group-hover/btn:scale-110 transition-transform"></i>
+                                        </div>
+                                        <div class="truncate">
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="contact-email-label">Email</p>
+                                            <p class="text-base font-bold text-gray-900 truncate">contact@elhoussinetaqi.com</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" class="bg-white border-t border-gray-200 mt-auto py-10 transition-opacity duration-500 hidden-on-course reveal-up">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
+            <div class="flex items-center gap-3">
+                <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-12 md:h-16 w-auto max-w-[250px] object-contain hover:scale-105 transition-transform">
+                <div class="flex flex-col border-l border-gray-200 pl-3 ml-1">
+                    <span class="text-xs text-gray-500 font-bold" data-i18n="footer-sub">Fondateur du système TAJIROX | Formateur</span>
+                </div>
+            </div>
+            <div class="text-center md:text-end">
+                <p data-i18n="copyright" class="font-medium">© 2026 EL HOUSSINE TAQI. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VUE : LECTEUR DE COURS -->
+    <div id="course-view" class="hidden fixed inset-0 z-[100] flex flex-col bg-slate-50 view-section">
+        <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between shrink-0 relative">
+            <div class="flex items-center gap-4 w-full">
+                <button onclick="closeCourse()" class="btn-press flex items-center gap-2 text-gray-600 hover:bg-gray-100 border px-4 py-2 rounded-lg text-sm transition-all">
+                    <i data-lucide="arrow-left" class="w-4 h-4 rtl:rotate-180"></i>
+                    <span data-i18n="reader-back">Retour</span>
+                </button>
+                <div class="h-6 w-px bg-gray-200"></div>
+                <h1 class="text-sm sm:text-base font-semibold flex items-center gap-3 truncate">
+                    <span id="course-title" class="truncate">Titre</span>
+                </h1>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full bg-white relative overflow-hidden">
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
+                <i data-lucide="loader-2" class="w-10 h-10 text-blue-600 animate-spin mb-4"></i>
+                <p class="text-slate-500 font-medium text-sm animate-pulse" data-i18n="reader-loading">Chargement de l'espace...</p>
+            </div>
+            <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
