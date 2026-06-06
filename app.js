@@ -57,7 +57,7 @@ const translations = {
         'taj-btn': 'Accéder au système TAJIROX',
         
         /* Profil Modifié */
-        'about-job': 'Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion',
+        'about-job': 'Fondateur TAJIROX | Formateur en Comptabilité et Gestion',
         'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
         'contact-catchphrase': 'Prêt à démarrer ou besoin d\'infos ? Contactez-moi :',
         'contact-phone-label': 'Téléphone',
@@ -125,7 +125,7 @@ const translations = {
         'taj-btn': 'الدخول إلى نظام TAJIROX',
         
         /* Profil Modifié Arabe */
-        'about-job': 'مؤسس نظام TAJIROX | مكون في المحاسبة والتدبير',
+        'about-job': 'مؤسس TAJIROX | مكون في المحاسبة والتدبير',
         'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
         'contact-catchphrase': 'هل أنت جاهز للبدء أو تحتاج لمعلومات؟ اتصل بي:',
         'contact-phone-label': 'الهاتف',
