@@ -19,7 +19,7 @@ const translations = {
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
         'course-1-title': 'Comptabilité pratique',
-        'course-1-desc': 'Maîtrisez l’ensemble des opérations de la comptabilité complète.',
+        'course-1-desc': 'Comptabilité complète, déclarations fiscales et sociales sur le dossier d'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
         'course-3-title': 'Gestion commerciale',
@@ -87,7 +87,7 @@ const translations = {
         'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
         
         'course-1-title': 'المحاسبة التطبيقية',
-        'course-1-desc': 'إتقان جميع عمليات المحاسبة الكاملة بشكل عملي.',
+        'course-1-desc': 'المحاسبة الشاملة، والتصريحات الجبائية والاجتماعية انطلاقًا من ملف محاسبي لمقاولة.',
         'course-2-title': 'المعلوميات المكتبية',
         'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
         'course-3-title': 'التدبير التجاري',
