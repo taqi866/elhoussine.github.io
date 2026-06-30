@@ -129,7 +129,8 @@
                 </div>
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <!-- Mise à jour de la grille pour lg:grid-cols-3 au lieu de 4 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                         <!-- Carte 1 -->
                         <div class="reveal-up delay-100 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
                             <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
@@ -169,8 +170,9 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- Carte 4 -->
-                        <div class="reveal-up delay-400 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
+
+                        <!-- Carte 3 (Anciennement Carte 4 Excel) -->
+                        <div class="reveal-up delay-300 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
                             <div class="h-40 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                                 <i data-lucide="file-spreadsheet" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
