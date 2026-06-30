@@ -4,15 +4,13 @@ const translations = {
     'fr': {
         'nav-home': 'Accueil',
         'nav-courses': 'Formations',
-        'nav-tajirox': 'Système TAJIROX',
         'nav-contact': 'Contact',
         
         'instructor-name': 'El Houssine TAQI',
-        'hero-badge-form': 'Formations 100% Pratiques & Système de Gestion',
-        'hero-title-form-1': 'Solution de Gestion TAJIROX',
-        'hero-title-form-2': '& Formations en Comptabilité & Gestion',
-        'hero-desc-form': 'Accélérez votre carrière avec des formations professionnelles ciblées ou propulsez votre commerce avec notre système de gestion intégré TAJIROX.',
-        'hero-btn-tajirox': 'Découvrir TAJIROX',
+        'hero-badge-form': 'Formations 100% Pratiques',
+        'hero-title-form-1': 'Formations Pratiques',
+        'hero-title-form-2': 'en Comptabilité & Gestion',
+        'hero-desc-form': 'Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.',
         'hero-btn-formations': 'Voir nos formations',
         
         'sec-courses-title': 'Nos Formations',
@@ -35,26 +33,7 @@ const translations = {
         'stat-2': 'De contenu pratique',
         'stat-3': 'Taux de satisfaction',
 
-        /* Traductions Système TAJIROX */
-        'taj-main-title': 'Système TAJIROX',
-        'taj-main-subtitle': 'La solution ultime dédiée aux commerçants pour la gestion globale de votre activité, de vos stocks à votre trésorerie.',
-        'taj-f1-title': 'Tableau de Bord',
-        'taj-f1-desc': 'Aperçu général des ventes, bénéfices et dépenses en temps réel.',
-        'taj-f2-title': 'Gestion de Stock',
-        'taj-f2-desc': 'Suivi précis des produits, des alertes et des quantités disponibles.',
-        'taj-f3-title': 'Factures Pro',
-        'taj-f3-desc': 'Édition professionnelle de factures de vente et de services.',
-        'taj-f4-title': 'Clients & Fournisseurs',
-        'taj-f4-desc': 'Suivi détaillé des dettes, des créances et des paiements.',
-        'taj-f5-title': 'Rapports Intelligents',
-        'taj-f5-desc': 'Analyse approfondie des profits, des pertes et des performances.',
-        'taj-f6-title': 'Gestion des Dépenses',
-        'taj-f6-desc': 'Suivi rigoureux et contrôle précis de l\'ensemble des dépenses.',
-        'taj-f7-title': 'Chèques et Traites',
-        'taj-f7-desc': 'Suivi proactif des échéances bancaires et des encaissements.',
-        'taj-f8-title': 'Gestion de Trésorerie',
-        'taj-f8-desc': 'Suivi des soldes, transferts et état global de liquidité.',
-        'taj-btn': 'Accéder au système TAJIROX',
+
         
         /* Profil Modifié */
         'about-job': 'Fondateur TAJIROX | Formateur en Comptabilité et Gestion',
@@ -72,15 +51,13 @@ const translations = {
     'ar': {
         'nav-home': 'الرئيسية',
         'nav-courses': 'التكوينات',
-        'nav-tajirox': 'نظام TAJIROX',
         'nav-contact': 'اتصل بنا',
         
         'instructor-name': 'الحسين تاقي',
-        'hero-badge-form': 'تكوينات تطبيقية 100% ونظام التسيير',
-        'hero-title-form-1': 'حل التسيير TAJIROX',
-        'hero-title-form-2': 'وتكوينات في المحاسبة والتدبير',
-        'hero-desc-form': 'سرّع مسارك المهني مع تكوينات دقيقة أو قم بتطوير تجارتك باستخدام نظام التسيير المندمج TAJIROX.',
-        'hero-btn-tajirox': 'اكتشف نظام TAJIROX',
+        'hero-badge-form': 'تكوينات تطبيقية 100%',
+        'hero-title-form-1': 'تكوينات تطبيقية',
+        'hero-title-form-2': 'في المحاسبة والتدبير',
+        'hero-desc-form': 'سرّع مسارك المهني مع دورات تطبيقية مصممة خصيصاً لاكتساب مهارات عملية مباشرة.',
         'hero-btn-formations': 'اطلع على دوراتنا',
         
         'sec-courses-title': 'دوراتنا التكوينية',
@@ -103,26 +80,7 @@ const translations = {
         'stat-2': 'من المحتوى التطبيقي',
         'stat-3': 'نسبة الرضا',
         
-        /* Traductions Système TAJIROX Arabe */
-        'taj-main-title': 'نظام TAJIROX',
-        'taj-main-subtitle': 'الحل الشامل والمصمم خصيصاً للتجار لتدبير متكامل لنشاطك التجاري، من إدارة المخزون إلى الخزينة.',
-        'taj-f1-title': 'لوحة القيادة',
-        'taj-f1-desc': 'نظرة عامة على المبيعات، الأرباح والمصاريف في الوقت الفعلي.',
-        'taj-f2-title': 'تدبير المخزون',
-        'taj-f2-desc': 'تتبع دقيق للمنتجات، التنبيهات والكميات المتوفرة.',
-        'taj-f3-title': 'فواتير احترافية',
-        'taj-f3-desc': 'إصدار احترافي لفواتير البيع والخدمات.',
-        'taj-f4-title': 'الزبناء والموردون',
-        'taj-f4-desc': 'تتبع مفصل للديون، المستحقات والأداءات.',
-        'taj-f5-title': 'تقارير ذكية',
-        'taj-f5-desc': 'تحليل معمق للأرباح، الخسائر والأداء التجاري.',
-        'taj-f6-title': 'تدبير المصاريف',
-        'taj-f6-desc': 'تتبع صارم ومراقبة دقيقة لجميع المصاريف.',
-        'taj-f7-title': 'الشيكات والكمبيالات',
-        'taj-f7-desc': 'تتبع استباقي للتواريخ البنكية والتحصيلات.',
-        'taj-f8-title': 'تدبير الخزينة',
-        'taj-f8-desc': 'تتبع الأرصدة، التحويلات والحالة العامة للسيولة.',
-        'taj-btn': 'الدخول إلى نظام TAJIROX',
+
         
         /* Profil Modifié Arabe */
         'about-job': 'مؤسس TAJIROX | مكون في المحاسبة والتدبير',
@@ -212,17 +170,7 @@ function showFormations() {
     closeMobileMenu();
 }
 
-function showTajirox() {
-    ensureHomeView();
-    setTimeout(() => {
-        const section = document.getElementById('tajirox-section');
-        if (section) {
-            const y = section.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-    }, 50);
-    closeMobileMenu();
-}
+
 
 function showContact() {
     ensureHomeView();
