@@ -19,7 +19,7 @@ const translations = {
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
         'course-1-title': 'Comptabilité pratique',
-        'course-1-desc': 'Maîtrisez l’ensemble des opérations de la comptabilité complète.',
+        'course-1-desc': 'Comptabilité complète, déclarations fiscales et sociales sur le dossier d\'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
         'course-3-title': 'Gestion commerciale',
@@ -355,24 +355,43 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// Init on Load
-window.addEventListener('load', () => {
+// Deactivate splash screen safely and show main content
+let isSplashDeactivated = false;
+function deactivateSplashScreen() {
+    if (isSplashDeactivated) return;
+    isSplashDeactivated = true;
+
     const splash = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-wrapper');
     const header = document.getElementById('main-header');
     
-    setTimeout(() => {
-        if (splash) {
-            splash.style.opacity = '0';
-            splash.style.visibility = 'hidden';
-        }
-        if (mainContent) mainContent.classList.remove('opacity-0');
-        if (header) header.classList.remove('opacity-0');
-        document.body.classList.remove('overflow-hidden');
-        
-        // Initialize animations after splash screen
-        setTimeout(initScrollAnimations, 100);
-    }, 1200);
+    if (splash) {
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+    }
+    if (mainContent) mainContent.classList.remove('opacity-0');
+    if (header) header.classList.remove('opacity-0');
+    document.body.classList.remove('overflow-hidden');
+    
+    // Initialize animations after splash screen
+    setTimeout(initScrollAnimations, 100);
+}
+
+// Trigger splash screen deactivation as soon as DOM is interactive
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(deactivateSplashScreen, 800);
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(deactivateSplashScreen, 800);
+    });
+}
+
+// Secondary trigger on window load event
+window.addEventListener('load', () => {
+    setTimeout(deactivateSplashScreen, 500);
 });
+
+// Fail-safe: Force hide splash screen after 1.5s in case of network delays or failures
+setTimeout(deactivateSplashScreen, 1500);
 
 updateContent();
