@@ -16,8 +16,8 @@ const translations = {
         'sec-courses-title': 'Nos Formations',
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
-        'course-1-title': 'Comptabilité pratique',
-        'course-1-desc': 'Comptabilité complète, déclarations fiscales et sociales sur le dossier d\'une entreprise.',
+        'course-1-title': 'Comptabilité pratique (Aide comptable)',
+        'course-1-desc': 'Devenez un aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
         'course-3-title': 'Gestion commerciale',
@@ -25,8 +25,11 @@ const translations = {
         'course-4-title': 'Excel professionnel',
         'course-4-desc': 'Développez des compétences Excel adaptées aux exigences du monde professionnel.',
         'course-duration': '36 heures',
-        'course-duration-excel': '24 heures',
+        'course-duration-excel': '24 à 36 heures',
         'course-btn': 'Accéder',
+        'course-program-btn': 'Voir le programme',
+        'modal-badge': 'Plan de formation',
+        'modal-close-btn': 'Fermer',
         
         /* Stats */
         'stat-1': 'Stagiaires formés',
@@ -63,8 +66,8 @@ const translations = {
         'sec-courses-title': 'دوراتنا التكوينية',
         'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
         
-        'course-1-title': 'المحاسبة التطبيقية',
-        'course-1-desc': 'المحاسبة الكاملة، التصاريح الضريبية والاجتماعية لملف المقاولة.',
+        'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
+        'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
         'course-2-title': 'المعلوميات المكتبية',
         'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
         'course-3-title': 'التدبير التجاري',
@@ -72,8 +75,11 @@ const translations = {
         'course-4-title': 'إكسيل الاحترافي',
         'course-4-desc': 'طوّر مهاراتك في Excel بما يتوافق مع متطلبات سوق العمل.',
         'course-duration': '36 ساعة',
-        'course-duration-excel': '24 ساعة',
+        'course-duration-excel': 'من 24 إلى 36 ساعة',
         'course-btn': 'الدخول',
+        'course-program-btn': 'عرض البرنامج',
+        'modal-badge': 'برنامج التكوين',
+        'modal-close-btn': 'إغلاق',
 
         /* Stats Arabic */
         'stat-1': 'متدرب مكون',
@@ -101,14 +107,44 @@ let currentLang = 'fr';
 
 const coursesData = {
     'compta': {
-        title_fr: 'Comptabilité pratique',
-        title_ar: 'المحاسبة التطبيقية',
-        url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec'
+        title_fr: 'Comptabilité pratique (Aide comptable)',
+        title_ar: 'المحاسبة العملية (مساعد محاسب)',
+        url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec',
+        program_fr: [
+            "Introduction générale.",
+            "Installation de logiciel sage 100.",
+            "Paramétrage de l’entreprise sur Sage 100.",
+            "Classement des pièces comptables.",
+            "L’enregistrement des opérations courantes.",
+            "Lettrage des comptes et rapprochement bancaire.",
+            "Préparation et déclaration de la TVA.",
+            "Déclaration du droit de timbre."
+        ],
+        program_ar: [
+            "مقدمة عامة.",
+            "تثبيت برنامج Sage 100.",
+            "إعداد المقاولة على برنامج Sage 100.",
+            "تصنيف وفرز الوثائق المحاسبية.",
+            "تسجيل العمليات الجارية.",
+            "مطابقة الحسابات والتسوية البنكية.",
+            "إعداد والتصريح بالضريبة على القيمة المضافة (TVA).",
+            "التصريح بواجب التمبر."
+        ]
     },
     'informatique': {
         title_fr: 'Informatique bureautique',
         title_ar: 'المعلوميات المكتبية',
-        url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec'
+        url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec',
+        program_fr: [
+            "Microsoft Word (Traitement de texte professionnel).",
+            "Microsoft Excel (Gestion de données et formules de base).",
+            "Microsoft PowerPoint (Création de présentations dynamiques)."
+        ],
+        program_ar: [
+            "برنامج Microsoft Word (معالجة النصوص الاحترافية).",
+            "برنامج Microsoft Excel (إدارة البيانات والصيغ الأساسية).",
+            "برنامج Microsoft PowerPoint (إنشاء عروض تقديمية ديناميكية)."
+        ]
     },
     'gestion': {
         title_fr: 'Gestion commerciale',
@@ -118,7 +154,21 @@ const coursesData = {
     'excel': {
         title_fr: 'Excel professionnel',
         title_ar: 'إكسيل الاحترافي',
-        url: '' 
+        url: '',
+        program_fr: [
+            "Calculs de base, fonctions de base et fonctions conditionnelles.",
+            "Formules avancées et fonctions logiques (RECHERCHEV/X, SI, SOMME.SI.ENS).",
+            "Analyse de données avec les Tableaux Croisés Dynamiques (TCD) et segments.",
+            "Graphiques avancés et création de Tableaux de Bord (Dashboards).",
+            "Validation des données, protection des feuilles et gestion des erreurs."
+        ],
+        program_ar: [
+            "الحسابات الأساسية، الدوال الأساسية والدوال الشرطية.",
+            "الصيغ المتقدمة والدوال المنطقية (VLOOKUP, XLOOKUP, IF, SUMIFS).",
+            "تحليل البيانات باستخدام الجداول المحورية (TCD) والمجزئات (Slicers).",
+            "الرسوم البيانية المتقدمة وإنشاء لوحات التحكم (Dashboards).",
+            "التحقق من صحة البيانات، حماية أوراق العمل وإدارة الأخطاء."
+        ]
     }
 };
 
@@ -182,6 +232,78 @@ function showContact() {
         }
     }, 50);
     closeMobileMenu();
+}
+
+function openProgram(courseId) {
+    const course = coursesData[courseId];
+    if (!course) return;
+
+    const modal = document.getElementById('program-modal');
+    const modalContent = document.getElementById('program-modal-content');
+    const titleEl = document.getElementById('program-modal-title');
+    const listEl = document.getElementById('program-modal-list');
+    const accessBtn = document.getElementById('program-modal-access-btn');
+
+    if (!modal || !modalContent) return;
+
+    titleEl.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+
+    listEl.innerHTML = '';
+    const program = currentLang === 'fr' ? course.program_fr : course.program_ar;
+    if (program && program.length > 0) {
+        program.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.className = 'flex items-start gap-3 text-gray-700 text-sm sm:text-base py-2 border-b border-gray-100 last:border-0 hover:bg-slate-50/50 rounded-lg px-2 -mx-2 transition-colors';
+            
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mt-0.5 font-bold text-xs';
+            iconSpan.textContent = index + 1;
+            
+            const textSpan = document.createElement('span');
+            textSpan.className = 'font-semibold leading-relaxed text-gray-800';
+            textSpan.textContent = item;
+            
+            li.appendChild(iconSpan);
+            li.appendChild(textSpan);
+            listEl.appendChild(li);
+        });
+    } else {
+        const li = document.createElement('li');
+        li.className = 'text-gray-500 text-sm italic text-center py-6';
+        li.textContent = currentLang === 'fr' ? 'Le programme détaillé sera disponible bientôt.' : 'سيكون البرنامج التفصيلي متاحاً قريباً.';
+        listEl.appendChild(li);
+    }
+
+    if (accessBtn) {
+        if (course.url) {
+            accessBtn.classList.remove('hidden');
+            accessBtn.onclick = () => {
+                closeProgram();
+                openCourse(courseId);
+            };
+        } else {
+            accessBtn.classList.add('hidden');
+        }
+    }
+
+    modal.classList.remove('pointer-events-none', 'opacity-0');
+    modal.classList.add('opacity-100');
+    modalContent.classList.remove('scale-95', 'opacity-0');
+    modalContent.classList.add('scale-100', 'opacity-100');
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function closeProgram() {
+    const modal = document.getElementById('program-modal');
+    const modalContent = document.getElementById('program-modal-content');
+
+    if (!modal || !modalContent) return;
+
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
 }
 
 function openCourse(courseId) {
